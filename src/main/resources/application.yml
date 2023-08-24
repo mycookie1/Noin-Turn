@@ -11,5 +11,5 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+   # database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true

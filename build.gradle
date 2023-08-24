@@ -27,6 +27,7 @@ dependencies {
 
     //MySql
     implementation 'mysql:mysql-connector-java:8.0.32'
+    implementation ('org.springframework.boot:spring-boot-starter-jdbc')
 
     //클로바
     implementation 'org.apache.httpcomponents:httpclient:4.5.12'
