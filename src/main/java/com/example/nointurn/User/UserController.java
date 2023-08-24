@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 @RequiredArgsConstructor
 @RestController
@@ -23,15 +23,15 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    @ResponseBody
-    @PostMapping("")
-    public void postInfomation(@RequestParam String videoURL) {
-        final Clova clovaSpeechClient = new Clova();
-        Clova.NestRequestEntity requestEntity = new Clova.NestRequestEntity();
-        final String result = clovaSpeechClient.url("file URL", requestEntity);
-        System.out.println(result);
-    
-    }
+//    @ResponseBody
+//    @PostMapping("")
+//    public void postInfomation(@RequestParam String videoURL) {
+//        final Clova clovaSpeechClient = new Clova();
+//        Clova.NestRequestEntity requestEntity = new Clova.NestRequestEntity();
+//        final String result = clovaSpeechClient.url("file URL", requestEntity);
+//        System.out.println(result);
+//
+//    }
 
     /**
      * 유저조회
