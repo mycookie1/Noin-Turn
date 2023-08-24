@@ -3,6 +3,7 @@ package com.example.nointurn.User;
 
 import com.example.nointurn.User.entity.User;
 import com.example.nointurn.User.model.*;
+import com.example.nointurn.clova.Clova;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -22,6 +23,15 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    @ResponseBody
+    @PostMapping("")
+    public void postInfomation(@RequestParam String videoURL) {
+        final Clova clovaSpeechClient = new Clova();
+        Clova.NestRequestEntity requestEntity = new Clova.NestRequestEntity();
+        final String result = clovaSpeechClient.url("file URL", requestEntity);
+        System.out.println(result);
+    
+    }
 
     /**
      * 유저조회
