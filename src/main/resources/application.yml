@@ -1,10 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    #url: jdbc:mysql://localhost:3306/silvercoder?serverTimezone=Asia/Seoul
-    url: jdbc:mysql://database-1.cplho4jgyydu.ap-northeast-2.rds.amazonaws.com:3306/silvercoder?serverTimezone=Asia/Seoul
-    username: root
-    password: password
+    url: jdbc:mysql://localhost:${PORT}/${DATABASENAME}?serverTimezone=Asia/Seoul
+    username: ${ROOT}
+    password: ${PASSWORD}
   jpa:
     hibernate:
       ddl-auto: none

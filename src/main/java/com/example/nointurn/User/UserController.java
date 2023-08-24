@@ -4,6 +4,11 @@ package com.example.nointurn.User;
 import com.example.nointurn.User.entity.User;
 import com.example.nointurn.User.model.*;
 import com.example.nointurn.clova.Clova;
+import com.example.nointurn.openchat.OpenController;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -23,15 +28,17 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-//    @ResponseBody
-//    @PostMapping("")
-//    public void postInfomation(@RequestParam String videoURL) {
-//        final Clova clovaSpeechClient = new Clova();
-//        Clova.NestRequestEntity requestEntity = new Clova.NestRequestEntity();
-//        final String result = clovaSpeechClient.url("file URL", requestEntity);
-//        System.out.println(result);
-//
-//    }
+
+    /**
+     * 동영상에서 특정 데이터 뽑아내기
+     * @param videoURL
+     */
+    @ResponseBody
+    @PostMapping("")
+    public void postInformation(@RequestParam String videoURL) {
+        //클로바로 text 추출
+        userService.postInformation(videoURL);
+    }
 
     /**
      * 유저조회

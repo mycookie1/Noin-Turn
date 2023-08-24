@@ -26,11 +26,11 @@ import java.util.Map;
 public class Clova {
 
     // Clova Speech secret key
-//    @Value("${DB_HOST}")
-    private static final String SECRET = "e060f62e1145486ba735f0a052aed0c2";
+    @Value("${SECRET}")
+    private static final String SECRET = "";
     // Clova Speech invoke URL
-//    @Value("${DB_HOST}")
-    private static final String INVOKE_URL = "https://clovaspeech-gw.ncloud.com/external/v1/5688/3fa84f5a569fc824f619e88f5bdccfba5536de6c1e8da6c3323c73a4dfb8fa9b";
+    @Value("${URL}")
+    private static final String INVOKE_URL ="";
 
     private CloseableHttpClient httpClient = HttpClients.createDefault();
     private Gson gson = new Gson();

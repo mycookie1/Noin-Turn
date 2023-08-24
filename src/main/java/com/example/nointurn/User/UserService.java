@@ -11,6 +11,12 @@ import com.example.nointurn.Company.entity.CompanyApply;
 import com.example.nointurn.User.entity.User;
 import com.example.nointurn.User.entity.UserApply;
 import com.example.nointurn.User.model.*;
+import com.example.nointurn.clova.Clova;
+import com.example.nointurn.openchat.OpenController;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -140,5 +146,31 @@ public class UserService {
         UserApply userApply = new UserApply(user,company);
         UserApply newUserApply = userApplyRepository.save(userApply);
         return newUserApply.getUserApplyIdx();
+    }
+
+    //비디오에서 내용 추출
+    public void postInformation(String videoURL){
+        final Clova clovaSpeechClient = new Clova();
+        Clova.NestRequestEntity requestEntity = new Clova.NestRequestEntity();
+        final String result = clovaSpeechClient.url(videoURL, requestEntity);
+        System.out.println(result);
+
+        //클로바로 추출한 text에서 말하는 부분만 추출
+        String jsonString = result;
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(jsonString, JsonObject.class);
+
+        JsonArray segments = jsonObject.getAsJsonArray("segments");
+        String speak = "";
+        for (JsonElement segmentElement : segments) {
+            JsonObject segment = segmentElement.getAsJsonObject();
+            String text = segment.get("text").getAsString();
+            speak += text;
+        }
+        System.out.println("Text: " + speak);
+
+        //ChatGPT를 사용한 특정 데이터 추출
+        OpenController openController = new OpenController();
+        openController.getOpenAI(speak);
     }
 }
