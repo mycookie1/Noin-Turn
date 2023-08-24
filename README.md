@@ -12,6 +12,8 @@
 
 #### Project Name : NOIN-TURN
 
+#### Problem : 노년인구의 경제활동은 증가하지만 개인이 갖고 있는 재능을 살리지 못하고 다른일을 하고 있는 상황이다.
+
 #### Subject : 노인의 재능 적성에 맞게 알맞는 일을 찾아주자
 
 #### Project execution period : 2023.08.24 ~ 2023.08.25
