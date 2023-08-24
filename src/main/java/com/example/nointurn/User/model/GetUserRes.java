@@ -10,6 +10,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class GetUserRes {
+    private Long userIdx;
     private String name;
     private int age;
     private String location;

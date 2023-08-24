@@ -58,7 +58,7 @@ public class UserService {
         for(String temp: career){
             careerList.add(temp);
         }
-        GetUserRes getUserRes = new GetUserRes(newUser.getName(), newUser.getAge(), newUser.getLocation(),abilitySentence,careerList);
+        GetUserRes getUserRes = new GetUserRes(newUser.getUserIdx(), newUser.getName(), newUser.getAge(), newUser.getLocation(),abilitySentence,careerList);
        return getUserRes;
     }
     //유저의 요구와 맞는 기업 리스트
@@ -100,7 +100,7 @@ public class UserService {
 
         List<GetOfferJobRes> getOfferJobResList = new ArrayList<>();
         for(CompanyApply companyApply: companyApplyList){
-            GetOfferJobRes newGetOfferJobRes = new GetOfferJobRes(companyApply.getCompanyIdx().getName(),companyApply.getCompanyIdx().getLocation(),companyApply.getCompanyIdx().getImageURL());
+            GetOfferJobRes newGetOfferJobRes = new GetOfferJobRes(companyApply.getCompanyIdx().getCompanyIdx(),companyApply.getCompanyIdx().getName(),companyApply.getCompanyIdx().getLocation(),companyApply.getCompanyIdx().getImageURL());
             getOfferJobResList.add(newGetOfferJobRes);
         }
 
@@ -118,7 +118,7 @@ public class UserService {
                 abilitySentence += ", ";
             }
         }
-        GetCompanyRes getCompanyRes = new GetCompanyRes(company.getName(),company.getLocation(),company.getImageURL(),company.getContext(), company.getAge(), company.getCareer(),abilitySentence ,company.getWage(), company.getPeriod());
+        GetCompanyRes getCompanyRes = new GetCompanyRes(companyIdx,company.getName(),company.getLocation(),company.getImageURL(),company.getContext(), company.getAge(), company.getCareer(),abilitySentence ,company.getWage(), company.getPeriod());
         return getCompanyRes;
     }
     //유저가 지원한 기업
@@ -128,9 +128,17 @@ public class UserService {
         List<UserApply> userApplyList = userApplyRepository.findAllByUserIdx(newUser);
         List<GetApplyJobRes> getApplyJobResList = new ArrayList<>();
         for(UserApply userApply: userApplyList){
-            GetApplyJobRes getApplyJobRes = new GetApplyJobRes(userApply.getCompanyIdx().getName(),userApply.getCompanyIdx().getLocation(),userApply.getCompanyIdx().getImageURL());
+            GetApplyJobRes getApplyJobRes = new GetApplyJobRes(userApply.getCompanyIdx().getCompanyIdx(),userApply.getCompanyIdx().getName(),userApply.getCompanyIdx().getLocation(),userApply.getCompanyIdx().getImageURL());
             getApplyJobResList.add(getApplyJobRes);
         }
         return getApplyJobResList;
+    }
+    //지원하기
+    public Long postApplyJob(Long userIdx,Long companyIdx) {
+        User user = userRepository.findByUserIdx(userIdx).get();
+        Company company = companyRepository.findByCompanyIdx(companyIdx).get();
+        UserApply userApply = new UserApply(user,company);
+        UserApply newUserApply = userApplyRepository.save(userApply);
+        return newUserApply.getUserApplyIdx();
     }
 }

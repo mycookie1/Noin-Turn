@@ -26,8 +26,9 @@ public class UserApply extends BaseEntity {
 
 
 
-//    @Builder
-//    public UserApply(String name, String location, int age, String phone, String career, String imageURl, String videoURL){
-//
-//    }
+    @Builder
+    public UserApply(User userIdx, Company companyIdx){
+        this.userIdx = userIdx;
+        this.companyIdx = companyIdx;
+    }
 }

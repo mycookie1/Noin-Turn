@@ -3,10 +3,7 @@ package com.example.nointurn.Company.entity;
 import com.example.nointurn.User.entity.User;
 import com.example.nointurn.common.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -29,8 +26,9 @@ public class CompanyApply extends BaseEntity {
 
 
 
-//    @Builder
-//    public UserApply(String name, String location, int age, String phone, String career, String imageURl, String videoURL){
-//
-//    }
+    @Builder
+    public CompanyApply(User user, Company company){
+        this.userIdx = user;
+        this.companyIdx = company;
+    }
 }

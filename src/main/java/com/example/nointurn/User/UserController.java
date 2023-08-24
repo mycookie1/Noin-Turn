@@ -72,5 +72,16 @@ public class UserController {
         return userService.getApplyJobRes(userIdx);
     }
 
+    /**
+     * 지원하기
+     * @param userIdx
+     * @param companyIdx
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("apply/{userIdx}/{companyIdx}")
+    public Long postApplyJob(@PathVariable Long userIdx,@PathVariable Long companyIdx) {
+        return userService.postApplyJob(userIdx, companyIdx);
+    }
 
 }
