@@ -1,10 +1,8 @@
 # Noin-Turn
 해커톤
+# Gardener_Server(대상)
 
-<img width="1045" alt="image" src="https://github.com/mycookie1/Noin-Turn/assets/103025266/30f69bca-5419-453f-a6d7-851405889b64">
-# Gardener_Server(최우수상)
-
-<img width="1309" alt="image" src="https://github.com/mycookie1/Inha_zero/assets/103025266/30517cee-15ff-4519-a7d2-71fb79f9b7be">
+<img width="1309" alt="image" src="https://github.com/mycookie1/Noin-Turn/assets/103025266/b200bf7d-1022-47c5-a508-5174ed732bc9">
 
 # [2023_SOCIAL_IMPACT_HACKTHON]
 
@@ -21,7 +19,7 @@
 #### Contributors : [@유종건](https://github.com/mycookie1) 
 ------------------------
 ## 개발 환경
-<img width="879" alt="image" src="https://github.com/mycookie1/Inha_zero/assets/103025266/91245ca7-7a76-4528-8f9c-cf853d5f609d">
+<img width="879" alt="image" src="https://github.com/mycookie1/Noin-Turn/assets/103025266/65e9322d-89be-4288-8141-900e95492e30">
 
 - JDK 17
 - Springboot
@@ -34,17 +32,19 @@
 ----------------------
 
 # 서비스 기능
-
- <img src = "https://github.com/mycookie1/Inha_zero/assets/103025266/a104ae01-16f6-4eb1-ac31-af2a9ec0367e" width = "100%" height = "100%">
+ <img src = "https://github.com/mycookie1/Noin-Turn/assets/103025266/f7d4d3d0-a847-4971-a30b-fe9e3b99309d" width = "100%" height = "100%">
  
-- 영수증에서 탄소 제품 찾기
-- 앱에서 나무 키우기
-- 정원에 나무 옮기기
+- (노인)동영상에서 키워드 뽑아서 개인정보 등록
+- (회사)노인에게 원하는 키워드를 등록
+- 회사와 사용자 사이에 키워드로 매칭
 
 ---------------
-## 영수증 서비스
-
-<img src = "https://github.com/mycookie1/Inha_zero/assets/103025266/7c014133-1076-449f-b409-e825008483f5" width = "100%" height = "100%">
+## 동영상에서 키워드 추출
+- Naver SPEECH를 사용한 텍스트 추출
+- SPEECH에서 추출한 text에서 유효한 텍스트를 구분
+- OpenAI를 사용해 키워드 추출
+- 등록
+<img src = "https://github.com/mycookie1/Noin-Turn/assets/103025266/a455acb9-b250-4eb6-bd2c-3c901a32800e" width = "100%" height = "100%">
 
 --------------------
 ### 파일 구조
